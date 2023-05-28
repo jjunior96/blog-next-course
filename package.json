@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "pnpm lint --fix",
-      "pnpm test --findRelatedTests --bail --passWithNoTests"
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail --passWithNoTests"
     ]
   },
   "dependencies": {
