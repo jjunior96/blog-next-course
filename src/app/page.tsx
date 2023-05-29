@@ -1,5 +1,6 @@
-import { allPosts } from 'contentlayer/generated';
 import Image from 'next/image';
+
+import { allPosts } from 'contentlayer/generated';
 
 export default function Home() {
   const posts = allPosts.map((post) => post);
