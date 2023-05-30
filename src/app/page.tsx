@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { allPosts } from 'contentlayer/generated';
 
+import { Button } from '@/components/Button';
 import { Mdx } from '@/components/Mdx';
 
 export default function Home() {
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h2>Hellor worldd</h2>
+
+      <Button />
 
       <div dangerouslySetInnerHTML={{ __html: posts[0]?.title }} />
 
