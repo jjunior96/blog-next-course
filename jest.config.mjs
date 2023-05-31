@@ -1,9 +1,9 @@
 import nextJest from 'next/jest.js';
- 
+
 const createJestConfig = nextJest({
-  dir: './',
+  dir: './'
 });
- 
+
 /** @type {import('jest').Config} */
 const config = {
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
@@ -18,13 +18,13 @@ const config = {
     '<rootDir>/src/**/*.spec.{ts,tsx}'
   ],
   moduleNameMapper: {
-    'src/(.*)': '<rootDir>/src/$1',
+    'src/(.*)': '<rootDir>/src/$1'
   },
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest']
   },
- 
-  testEnvironment: 'jest-environment-jsdom',
+
+  testEnvironment: 'jest-environment-jsdom'
 };
- 
+
 export default createJestConfig(config);
