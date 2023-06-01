@@ -1,24 +1,27 @@
-import Image from 'next/image';
-
 import { allPosts } from 'contentlayer/generated';
 
-import { Button } from '@/components/Button';
-import { Mdx } from '@/components/Mdx';
+import { siteConfig } from '@/config';
+
+import { Grid } from '@/components/Grid';
+import { PostCard } from '@/components/PostCard';
+import { Profile } from '@/components/Profile';
 
 export default function Home() {
-  const posts = allPosts.map((post) => post);
+  const posts = allPosts;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h2>Hellor worldd</h2>
+    <main className="">
+      <div className="my-10">
+        <Profile items={siteConfig} />
+      </div>
 
-      <Button />
-
-      <div dangerouslySetInnerHTML={{ __html: posts[0]?.title }} />
-
-      <Image src={posts[0].image} width={700} height={700} alt="" />
-
-      <Mdx code={posts[0].body.code} />
+      <div>
+        <Grid sm={1} md={2} lg={3} gap={10}>
+          {posts.map((post) => (
+            <PostCard key={post._id} />
+          ))}
+        </Grid>
+      </div>
     </main>
   );
 }

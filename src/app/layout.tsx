@@ -1,4 +1,9 @@
+import { headerConfig } from '@/config';
+
+import { Header } from '@/components/Header';
 import '@/styles/globals.css';
+import { Layout } from '@/components/Layout';
+import { MainNav } from '@/components/MainNav';
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-700 text-gray-100">{children}</body>
+      <body className="bg-primary text-gray-100">
+        <Header>
+          <MainNav items={headerConfig} />
+        </Header>
+
+        <Layout>
+          <div className="pt-20">{children}</div>
+        </Layout>
+      </body>
     </html>
   );
 }
