@@ -5,6 +5,20 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}'
   ],
+  safelist: [
+    {
+      pattern: /^grid-cols-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
+    },
+    {
+      pattern: /^gap-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl']
+    },
+    {
+      pattern: /^text-/,
+      variants: ['xs', 'sm', 'md', 'lg', 'xl', '2xl']
+    }
+  ],
   theme: {
     extend: {
       fontFamily: {

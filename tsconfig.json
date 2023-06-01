@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/models": ["./src/models"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
