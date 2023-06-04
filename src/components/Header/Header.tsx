@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import { mainNavConfig } from '@/config';
 
 import { Logo } from '@/components/Logo';
+import { MainNav } from '@/components/MainNav';
 
 import * as S from './styles';
 
@@ -10,16 +11,7 @@ export const Header = () => {
       <S.Content>
         <Logo />
 
-        <S.Nav>
-          <S.List>
-            <S.ListItem>
-              <Link href="/">Home</Link>
-            </S.ListItem>
-            <S.ListItem>
-              <Link href="/articles">Articles</Link>
-            </S.ListItem>
-          </S.List>
-        </S.Nav>
+        <MainNav items={mainNavConfig} />
       </S.Content>
     </S.Container>
   );
