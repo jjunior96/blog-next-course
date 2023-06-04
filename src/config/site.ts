@@ -1,6 +1,6 @@
-import { Site } from '@/types';
+import { SiteType } from '@/models';
 
-export const siteConfig: Site = {
+export const siteConfig: SiteType = {
   name: 'Junior Alves',
   description: 'Blog onde falo sobre código e livros',
   title: 'Senior Software Engineer e content creator.',
