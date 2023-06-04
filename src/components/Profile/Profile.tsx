@@ -1,9 +1,9 @@
-import { Site } from '@/types';
+import { SiteType } from '@/models';
 
 import * as S from './styles';
 
 type ProfileProps = {
-  items: Site;
+  items: SiteType;
 };
 
 export const Profile = ({ items }: ProfileProps) => {

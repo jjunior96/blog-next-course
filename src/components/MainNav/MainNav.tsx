@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-import { HeaderNav } from '@/types';
+import { MainNavType } from '@/models';
 
 import * as S from './styles';
 
 type MainNavProps = {
-  items: HeaderNav;
+  items: MainNavType;
 };
 
 export const MainNav = ({ items }: MainNavProps) => {
