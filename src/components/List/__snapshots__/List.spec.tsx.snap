@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> should render a list 1`] = `
+<div>
+  <ul
+    class="flex justify-between gap-3"
+  >
+    children
+  </ul>
+</div>
+`;
