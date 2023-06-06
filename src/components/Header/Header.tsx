@@ -1,4 +1,4 @@
-import { mainConfig } from '@/config';
+import { mainNavConfig } from '@/config';
 
 import { Logo } from '@/components/Logo';
 import { MainNav } from '@/components/MainNav';
@@ -11,9 +11,7 @@ export const Header = () => {
       <S.Content>
         <Logo />
 
-        <div className="hidden lg:block">
-          <MainNav items={mainConfig} />
-        </div>
+        <MainNav items={mainNavConfig.mainNav} />
       </S.Content>
     </S.Container>
   );
