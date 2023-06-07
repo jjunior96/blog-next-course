@@ -22,7 +22,7 @@ export default function RootLayout({
         <Header />
 
         <Layout>
-          <div className="pt-20">{children}</div>
+          <div className="py-20">{children}</div>
         </Layout>
 
         <Footer items={mainNavConfig.mainNav} />
