@@ -5,6 +5,10 @@ export {
   X as CloseIcon,
   List as OpenIcon,
 
+  // Arrows
+  ArrowLeft as ArrowLeftIcon,
+  ArrowUp as ArrowUpIcon,
+
   // Social Icons
   FacebookLogo as FacebookIcon,
   LinkedinLogo as LinkedinIcon,
