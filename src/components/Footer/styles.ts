@@ -5,7 +5,8 @@ export const Container = tw.footer`
   flex-col
   border-t
   border-slate-600
-  pb-4 pt-6
+  pb-4 
+  pt-6
 `;
 
 export const Content = tw.div`

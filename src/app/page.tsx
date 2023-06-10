@@ -2,11 +2,12 @@ import { siteConfig } from '@/config';
 import { PostService } from '@/services';
 
 import { Grid } from '@/components/Grid';
+import { Pagination } from '@/components/Pagination';
 import { PostCard } from '@/components/PostCard';
 import { Profile } from '@/components/Profile';
 
 export default function Home() {
-  const { posts } = PostService.getAll();
+  const { posts, currentPage, numbPages } = PostService.getAll();
 
   return (
     <main>
@@ -19,6 +20,13 @@ export default function Home() {
           <PostCard key={post.slug} post={post} />
         ))}
       </Grid>
+
+      <Pagination
+        currentPage={currentPage}
+        numbPages={numbPages}
+        prevPage="/"
+        nextPage="/?page=2"
+      />
     </main>
   );
 }
