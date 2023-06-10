@@ -7,6 +7,7 @@ export {
 
   // Arrows
   ArrowLeft as ArrowLeftIcon,
+  ArrowRight as ArrowRightIcon,
   ArrowUp as ArrowUpIcon,
 
   // Social Icons
