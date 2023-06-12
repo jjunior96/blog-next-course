@@ -1,13 +1,15 @@
 import { siteConfig } from '@/config';
+import { paginationPages } from '@/functions';
 import { PostService } from '@/services';
 
-import { Grid } from '@/components/Grid';
 import { Pagination } from '@/components/Pagination';
-import { PostCard } from '@/components/PostCard';
+import { PostsList } from '@/components/PostsList';
 import { Profile } from '@/components/Profile';
 
 export default function Home() {
   const { posts, currentPage, numbPages } = PostService.getAll();
+
+  const { prevPage, nextPage } = paginationPages(currentPage);
 
   return (
     <main>
@@ -15,17 +17,13 @@ export default function Home() {
         <Profile items={siteConfig} />
       </div>
 
-      <Grid sm={1} md={2} lg={3} gap={10}>
-        {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </Grid>
+      <PostsList posts={posts} />
 
       <Pagination
         currentPage={currentPage}
         numbPages={numbPages}
-        prevPage="/"
-        nextPage="/?page=2"
+        prevPage={prevPage}
+        nextPage={nextPage}
       />
     </main>
   );
