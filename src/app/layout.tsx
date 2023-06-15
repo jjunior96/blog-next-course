@@ -7,6 +7,15 @@ import { Layout } from '@/components/Layout';
 
 import '@/styles/globals.css';
 
+export const metadata = {
+  title: {
+    template: '%s | Junior Alves',
+    default: 'Junior Alves'
+  },
+  description: 'Description',
+  manifest: '/manifest.json'
+};
+
 export default function RootLayout({
   children
 }: {
