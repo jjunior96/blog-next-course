@@ -1,0 +1,169 @@
+---
+layout: post
+title: O que é Dependency Injection e como aplicar no React.js?
+description: Vamos aprender à como aplicar esse conceito tão importante no React.js!
+image: /assets/images/diana-polekhina-dw6tvk_puxm-unsplash.jpg
+date: 2023-06-17 07:57:40
+tags:
+  - Next.js
+  - React
+---
+## Introdução
+
+Se você já se deparou com o desafio de gerenciar dependências complexas em seu código, provavelmente já ouviu falar sobre injeção de dependências.
+
+Com a injeção de dependências, é possível remover a complexidade dos componentes e torná-los mais independentes e reutilizáveis. Neste vídeo, vamos entender tudo o que você precisa saber sobre injeção de dependências e como aplicá-la em seu código para criar aplicações mais robustas e escaláveis.
+
+## Versão em vídeo
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/L44L5l3pcn4"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+## O que é DI?
+
+É um design pattern onde uma função recebe os dados que depende, exemplo: via parâmetro.
+
+Assim, não precisa ter tudo o que precisa dentro dela própria função, o que a deixaria "inchada" e isso trás vários problemas, como:
+
+- dificuldade de testar;
+
+- aumenta a complexidade de manutenção;
+
+- diminui o reaproveitamento.
+
+> Isso vale, não apenas para funções, para objetos também, podendo receber outro objeto…
+
+## Quais as vantagens?
+
+São várias as vantagens, como:
+
+- Separação de responsabilidade;
+
+- Menor acoplamento
+
+- Assim, cada função, não precisa conhecer como é a implementação de outra função
+
+- Só precisa saber a interface (conexão)
+
+- Exemplo: Você não precisa entender como o microondas funciona internamente para utiliza-lo, apenas conhecer a interface (o painel/botões).
+
+## E como aplicar no React.js?
+
+Essa é a melhor parte, o React.js já tem DI por padrão. Ficou surpreso?!
+
+Pense nas props (propriedades) do React.js. O objetivo principal das props não é permitir que o componente receba parâmetros do componente pai (passar informações do componente pai para o filho)? Exatamente!
+
+<Note>
+  **Obs 1**: Outra forma seria utilizando a Context API. <br />
+  Porém, a Context API **não é a solução para todos os casos de injeção de dependencias**. <br />
+
+**Obs 2**: Se tiver utilizando **OO** com JS, vale a dica de estudar a **InversifyJS**.
+
+</Note>
+
+## Exemplo prático
+
+Vamos criar um componente de `Header`, primeiro da forma "incorreta" e depois vamos aplicar o DI.
+
+```tsx "components/header.tsx" showLineNumbers {4,5,10-12,14-17} title="components/header.tsx"
+import * as S from './styles';
+
+const Header = () => {
+  const name = window.localStorage.getItem('name') ?? 'unknown';
+  const email = window.localStorage.getItem('email') ?? 'unknown@email.com';
+
+  return (
+    <S.Container>
+      <S.Content>
+        <S.LogoContainer>
+          <img src="logo.svg" alt="Logo" />
+        </S.LogoContainer>
+
+        <S.ProfileContainer>
+          <S.ProfileName>{name}</S.ProfileName>
+          <S.ProfileEmail>{email}</S.ProfileEmail>
+        </S.ProfileContainer>
+      </S.Content>
+    </S.Container>
+  );
+};
+```
+
+Perceba quantas responsabilidades o componente `Header` possui:
+
+1. Obter o `name` e `email` do localStorage;
+
+2. Tratar se tem esses dados corretos do localStorage;
+
+3. Estilizar a logo;
+
+Há necessidade do componente de `Header` ter essas responsabilidades? Não!
+
+Vamos melhorar isso.
+
+### Forma correta
+
+Criando o componente de `Logo`.
+
+```tsx showLineNumbers {1-3,10} title="components/logo.tsx"
+const Logo = () => {
+  return (
+    <S.LogoContainer>
+      <img src="logo.svg" alt="Logo" />
+    </S.LogoContainer>
+  );
+};
+```
+
+Criando o componente `Profile`.
+
+```tsx showLineNumbers title="components/profile.tsx"
+const Profile = ({ name, email }: { name: string; email: string }) => {
+  return (
+    <S.ProfileContainer>
+      <S.ProfileName>{name}</S.ProfileName>
+      <S.ProfileEmail>{email}</S.ProfileEmail>
+    </S.ProfileContainer>
+  );
+};
+```
+
+Criando uma função para obter os dados do localStorage.
+
+```ts showLineNumbers title="utils/get-item-localstorage.ts"
+const getItemLocalStorage = (key: string) => {
+  return window.localStorage.getItem(key);
+};
+```
+
+Agora vamos juntar os "pedaços" no nosso componente de `Header`.
+
+```tsx showLineNumbers {2-3,8,10} title="components/header.tsx"
+const Header = () => {
+  const name = getItemLocalStorage('name') ?? 'unknown';
+  const email = getItemLocalStorage('email') ?? 'unknown@email.com';
+
+  return (
+    <S.Container>
+      <S.Content>
+        <Logo />
+
+        <Profile name={name} email={email} />
+      </S.Content>
+    </S.Container>
+  );
+};
+```
+
+## Conclusão
+
+Nesse post, entendemos o que é a Denpendecy Injection, quais a vantagens e como aplicar no React.js utilizando componentes funcionais.
+
+Espero que tenha gostado do conteúdo, muito obrigado por ter lido até aqui e até a próxima!
