@@ -1,24 +1,54 @@
-import Image from 'next/image';
+import { siteConfig } from '@/config';
+import { paginationPages } from '@/functions';
+import { PostService } from '@/services';
 
-import { allPosts } from 'contentlayer/generated';
+import { Pagination } from '@/components/Pagination';
+import { PostsList } from '@/components/PostsList';
+import { Profile } from '@/components/Profile';
 
-import { Button } from '@/components/Button';
-import { Mdx } from '@/components/Mdx';
+export const metadata = {
+  title: siteConfig.name,
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
+  openGraph: {
+    type: 'website',
+    title: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: '/image-post.jpeg'
+      }
+    ]
+  },
+  robots: 'all',
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/image-post.jpeg`]
+  }
+};
 
 export default function Home() {
-  const posts = allPosts.map((post) => post);
+  const { posts, currentPage, numbPages } = PostService.getAll();
+  const { prevPage, nextPage } = paginationPages(currentPage);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h2>Hellor worldd</h2>
+    <main>
+      <div className="my-10">
+        <Profile items={siteConfig} />
+      </div>
 
-      <Button />
+      <PostsList posts={posts} />
 
-      <div dangerouslySetInnerHTML={{ __html: posts[0]?.title }} />
-
-      <Image src={posts[0].image} width={700} height={700} alt="" />
-
-      <Mdx code={posts[0].body.code} />
+      <Pagination
+        currentPage={currentPage}
+        numbPages={numbPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </main>
   );
 }
