@@ -24,10 +24,11 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
-      - { label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'select', multiple: true, options: [
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: true }
+      - { label: 'Post Image', name: 'image', widget: 'image', required: true }
+      - { label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss', required: true }
+      - { label: 'Tags', name: 'tags', widget: 'select', multiple: true,  required: true, options: [
         'Javascript',
         'Typescript',
         'Misc',
@@ -35,4 +36,4 @@ collections:
         'Next.js',
         'Books'
       ] }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
