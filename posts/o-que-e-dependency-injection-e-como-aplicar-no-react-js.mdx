@@ -21,7 +21,7 @@ Com a injeção de dependências, é possível remover a complexidade dos compon
   height="315"
   src="https://www.youtube.com/embed/L44L5l3pcn4"
   title="YouTube video player"
-  frameborder="0"
+  frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen
 ></iframe>
@@ -60,19 +60,11 @@ Essa é a melhor parte, o React.js já tem DI por padrão. Ficou surpreso?!
 
 Pense nas props (propriedades) do React.js. O objetivo principal das props não é permitir que o componente receba parâmetros do componente pai (passar informações do componente pai para o filho)? Exatamente!
 
-<Note>
-  **Obs 1**: Outra forma seria utilizando a Context API. <br />
-  Porém, a Context API **não é a solução para todos os casos de injeção de dependencias**. <br />
-
-**Obs 2**: Se tiver utilizando **OO** com JS, vale a dica de estudar a **InversifyJS**.
-
-</Note>
-
 ## Exemplo prático
 
 Vamos criar um componente de `Header`, primeiro da forma "incorreta" e depois vamos aplicar o DI.
 
-```tsx "components/header.tsx" showLineNumbers {4,5,10-12,14-17} title="components/header.tsx"
+```tsx  showLineNumbers {4,5,10-12,14-17} 
 import * as S from './styles';
 
 const Header = () => {
@@ -112,7 +104,7 @@ Vamos melhorar isso.
 
 Criando o componente de `Logo`.
 
-```tsx showLineNumbers {1-3,10} title="components/logo.tsx"
+```tsx showLineNumbers {1-3,10} 
 const Logo = () => {
   return (
     <S.LogoContainer>
@@ -124,7 +116,7 @@ const Logo = () => {
 
 Criando o componente `Profile`.
 
-```tsx showLineNumbers title="components/profile.tsx"
+```tsx showLineNumbers 
 const Profile = ({ name, email }: { name: string; email: string }) => {
   return (
     <S.ProfileContainer>
@@ -137,7 +129,7 @@ const Profile = ({ name, email }: { name: string; email: string }) => {
 
 Criando uma função para obter os dados do localStorage.
 
-```ts showLineNumbers title="utils/get-item-localstorage.ts"
+```ts showLineNumbers
 const getItemLocalStorage = (key: string) => {
   return window.localStorage.getItem(key);
 };
@@ -145,7 +137,7 @@ const getItemLocalStorage = (key: string) => {
 
 Agora vamos juntar os "pedaços" no nosso componente de `Header`.
 
-```tsx showLineNumbers {2-3,8,10} title="components/header.tsx"
+```tsx showLineNumbers {2-3,8,10} 
 const Header = () => {
   const name = getItemLocalStorage('name') ?? 'unknown';
   const email = getItemLocalStorage('email') ?? 'unknown@email.com';

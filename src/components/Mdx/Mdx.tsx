@@ -7,34 +7,52 @@ import { Pre } from './components';
 
 const components: MDXComponents = {
   h1: ({ className = '', children, ...props }) => (
-    <h1 className={`text-4xl font-bold ${className}`} {...props}>
+    <h1
+      className={`mt-12 scroll-m-20 text-4xl font-bold ${className}`}
+      {...props}
+    >
       {children}
     </h1>
   ),
   h2: ({ className = '', children, ...props }) => (
-    <h1 className={`text-3xl font-bold ${className}`} {...props}>
+    <h2
+      className={`mb-6 mt-14 scroll-m-20 pb-1 text-3xl font-bold ${className}`}
+      {...props}
+    >
       {children}
-    </h1>
+    </h2>
   ),
   h3: ({ className = '', children, ...props }) => (
-    <h1 className={`text-2xl font-bold ${className}`} {...props}>
+    <h3
+      className={`mb-4 mt-8 scroll-m-20 text-2xl font-bold ${className}`}
+      {...props}
+    >
       {children}
-    </h1>
+    </h3>
   ),
   h4: ({ className = '', children, ...props }) => (
-    <h1 className={`text-xl font-bold ${className}`} {...props}>
+    <h4
+      className={`mb-4 mt-8 scroll-m-20 text-xl font-bold ${className}`}
+      {...props}
+    >
       {children}
-    </h1>
+    </h4>
   ),
   h5: ({ className = '', children, ...props }) => (
-    <h1 className={`text-lg font-bold ${className}`} {...props}>
+    <h5
+      className={`mb-4 mt-8 scroll-m-20 text-lg font-bold ${className}`}
+      {...props}
+    >
       {children}
-    </h1>
+    </h5>
   ),
   h6: ({ className = '', children, ...props }) => (
-    <h1 className={`text-base font-bold ${className}`} {...props}>
+    <h6
+      className={`mb-4 mt-8 scroll-m-20 text-base font-bold ${className}`}
+      {...props}
+    >
       {children}
-    </h1>
+    </h6>
   ),
   a: ({ className = '', children, ...props }) => (
     <a
