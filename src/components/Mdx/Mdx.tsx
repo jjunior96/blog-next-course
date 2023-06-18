@@ -3,7 +3,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MDXComponents } from 'mdx/types';
 
 import '@/styles/mdx.css';
-import { Pre } from './components';
+import { Pre, Note } from './components';
 
 const components: MDXComponents = {
   h1: ({ className = '', children, ...props }) => (
@@ -90,7 +90,8 @@ const components: MDXComponents = {
     >
       {children}
     </code>
-  )
+  ),
+  Note
 };
 
 type MdxProps = {

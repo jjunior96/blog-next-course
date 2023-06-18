@@ -15,6 +15,10 @@ module.exports = {
       variants: ['sm', 'md', 'lg', 'xl', '2xl']
     },
     {
+      pattern: /^bg-/,
+      variants: ['blue', 'red', 'green']
+    },
+    {
       pattern: /^text-/,
       variants: ['xs', 'sm', 'md', 'lg', 'xl', '2xl']
     }
