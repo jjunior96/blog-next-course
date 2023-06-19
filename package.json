@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@openlab/vercel-netlify-cms-github": "^1.1.1",
-    "@phosphor-icons/react": "^2.0.9",
+    "@phosphor-icons/react": "^2.0.10",
     "@types/node": "20.2.4",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
