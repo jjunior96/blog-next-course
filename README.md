@@ -3,15 +3,23 @@
  👉 **Access link**: [here](https://hotm.art/lA0ujDcw)
 
 **Topics covered**
+
 We're going to talk a lot about:
 
 ✅ Create a template from scratch (Eslint, Prettierc, Jest, RTL and more)
+
 ✅ React fundamental concepts;
+
 ✅ Next.js 13 routing with the new App Router;
+
 ✅ Layout, error and other special files;
+
 ✅ React Server Components;
+
 ✅ Typescript;
+
 ✅ Tests.
+
 And so much more!
 
 **With Next.js 13 (APP Router) & React 18!**
