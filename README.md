@@ -2,6 +2,8 @@
 
  ### 👉 **Access link**: [here](https://hotm.art/lA0ujDcw)
 
+ ---
+
 **Topics covered**
 
 We're going to talk a lot about:
